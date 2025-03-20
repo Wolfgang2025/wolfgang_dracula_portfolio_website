@@ -1,0 +1,221 @@
+/* 👑 Realm of Transylvania – Dracula's Homepage */
+
+/* Fullscreen background with dark overlay */
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; /* Prevents scrolling */
+  position: fixed; /* Ensures layout remains static */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/lord_dracula_under_moonlight.jpg"); /* Gothic background */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: "Italiana", serif;
+  text-align: center;
+  padding: 10px;
+  color: white;
+  background-color: black; /* Ensures no gaps */
+  z-index: 0;
+}
+
+/* 🩸 Darker Background Overlay */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Slightly darker for readability */
+  z-index: -1;
+}
+
+/* 🔥 Flexbox Layout */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* 🦇 Red Neon Text */
+.neon-text {
+  font-family: "Quintessential", serif;
+  font-size: 32px;
+  color: white;
+  padding: 10px;
+  text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 20px #ff0000;
+}
+
+/* ⚔️ Immortal Sections */
+.immortal-section {
+  text-align: center;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.9);
+}
+
+/* 🎩 Lord Dracula & Wolfgang */
+.immortal-title {
+  font-family: "Quintessential", serif;
+  font-size: 24px;
+  color: #ff0000;
+  text-shadow: 0 0 15px #ff0000;
+}
+
+.immortal-description {
+  font-family: "Italiana", serif;
+  font-size: 18px;
+  color: white;
+  padding: 10px;
+}
+
+/* 🦇 Valerius AI Box - Right Side */
+.valeriusAI {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 30vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 20px;
+  border-left: 5px solid red;
+  box-shadow: -5px 0px 15px rgba(255, 0, 0, 0.7);
+  font-family: "Garamond", serif;
+  z-index: 100;
+}
+
+/* 👁️ Valerius AI Header */
+.valeriusAI-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+/* 👁️ Valerius AI Avatar */
+.valeriusAI-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px solid #ff0000;
+}
+
+/* 👁️ Valerius AI Title */
+.valeriusAI-title {
+  font-family: "Quintessential", serif;
+  font-size: 22px;
+  color: #ff0000;
+  text-shadow: 0 0 10px #ff0000;
+}
+
+/* 👁️ Valerius AI Text */
+.valeriusAI-text {
+  font-family: "Italiana", serif;
+  font-size: 16px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+/* 👁️ Valerius AI Input */
+.valeriusAI-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ff0000;
+  background: transparent;
+  color: white;
+  font-size: 16px;
+  outline: none;
+  border-radius: 4px;
+}
+
+/* 👁️ Valerius AI Button */
+.valeriusAI-button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.valeriusAI-button:hover {
+  transform: scale(1.1);
+  background-color: #a10000;
+}
+
+/* 🩸 Vampire Themed Buttons - Left Side */
+:root {
+  --button-width: 180px; /* Adjust width */
+  --button-height: 50px; /* Adjust height */
+  --button-font-size: 18px; /* Adjust font size */
+}
+
+.vampire-buttons-container {
+  position: absolute;
+  left: 20px;
+  top: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.vampire-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--button-width);
+  height: var(--button-height);
+  font-size: var(--button-font-size);
+  font-family: "Quintessential", serif;
+  background-color: black;
+  color: white;
+  border: 2px solid #ff0000;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.vampire-button:hover {
+  transform: scale(1.1);
+  background-color: #a10000;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 1);
+}
+
+/* 🩸 Neon Border */
+.neon-border {
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.8), 0 0 18px rgba(255, 0, 0, 0.6);
+  animation: flicker 1.2s infinite alternate;
+}
+
+/* 🩸 Smooth Flickering Effect */
+@keyframes flicker {
+  0% {
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 14px rgba(255, 0, 0, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 12px rgba(255, 0, 0, 0.6);
+  }
+}
