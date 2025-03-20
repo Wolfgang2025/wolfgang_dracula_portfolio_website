@@ -2,7 +2,7 @@
 
 import GothicScene from "../app/components/GothicScene"; // Importing the single Gothic Scene
 import Link from "next/link";
-import "../app/styles/globals.css"; // Importing global styles
+import "../styles/globals.css"; // Ensure this path is correct
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -28,8 +28,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <Link href="https://www.linkedin.com/in/h-m-36a31a286/details/projects/">
             <div className="vampire-button">🏰 My Projects</div>
           </Link>
-          <Link href="https://www.linkedin.com/in/h-m-36a31a286/details/projects/">
-            <div className="vampire-button">🏰 My Projects</div>
+          <Link href="https://gamma.app/docs/Wolfgang-Dracula-Software-Engineering-Portfolio-q3bv2hzz12fh138">
+            <div className="vampire-button">🩸 My Gamma Presentation</div>
           </Link>
         </div>
 

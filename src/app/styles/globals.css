@@ -1,5 +1,57 @@
 /* 👑 Realm of Transylvania – Dracula's Homepage */
 
+/* 🎭 Custom Font Imports */
+@font-face {
+  font-family: "Italiana";
+  src: url("/fonts/Italiana-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PetitFormalScript";
+  src: url("/fonts/PetitFormalScript-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Quintessential";
+  src: url("/fonts/Quintessential-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 🩸 Applying Fonts to Elements */
+body {
+  font-family: "Italiana", serif; /* Default site font */
+}
+
+.neon-text {
+  font-family: "Quintessential", serif;
+}
+
+.immortal-title {
+  font-family: "Quintessential", serif;
+}
+
+.immortal-description {
+  font-family: "Italiana", serif;
+}
+
+.valeriusAI-title {
+  font-family: "Quintessential", serif;
+}
+
+.valeriusAI-text {
+  font-family: "Italiana", serif;
+}
+
+/* Apply to vampire buttons */
+.vampire-button {
+  font-family: "Quintessential", serif;
+}
+
 /* Fullscreen background with dark overlay */
 body {
   height: 100vh;
@@ -177,6 +229,22 @@ body::before {
   gap: 15px;
 }
 
+./* 🩸 Vampire Themed Buttons - Left Side */
+:root {
+  --button-width: 180px; /* Adjust width */
+  --button-height: 50px; /* Adjust height */
+  --button-font-size: 18px; /* Adjust font size */
+}
+
+.vampire-buttons-container {
+  position: absolute;
+  left: 20px;
+  top: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
 .vampire-button {
   display: flex;
   align-items: center;
@@ -185,7 +253,8 @@ body::before {
   height: var(--button-height);
   font-size: var(--button-font-size);
   font-family: "Quintessential", serif;
-  background-color: black;
+  font-weight: bold; /* Makes text bold */
+  background-color: rgb(51, 2, 51);
   color: white;
   border: 2px solid #ff0000;
   border-radius: 5px;
@@ -193,6 +262,8 @@ body::before {
   text-decoration: none;
   box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
   transition: transform 0.3s, box-shadow 0.3s;
+  text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 20px #ff0000,
+    0 0 30px rgba(255, 0, 0, 0.8); /* Red neon glow */
 }
 
 .vampire-button:hover {
