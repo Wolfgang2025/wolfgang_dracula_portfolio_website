@@ -36,7 +36,7 @@ body {
 }
 
 .immortal-description {
-  font-family: "Italiana", serif;
+  font-family: "PetitFormalScript", serif;
 }
 
 .valeriusAI-title {
@@ -52,27 +52,34 @@ body {
   font-family: "Quintessential", serif;
 }
 
-/* Fullscreen background with dark overlay */
+/* 🩸 Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 🩸 Fullscreen background with NO scrolling */
+html,
 body {
-  height: 100vh;
   width: 100vw;
-  overflow: hidden; /* Prevents scrolling */
-  position: fixed; /* Ensures layout remains static */
+  height: 100vh;
+  overflow: hidden; /* No scroll */
+  position: fixed; /* Locks layout */
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("/lord_dracula_under_moonlight.jpg"); /* Gothic background */
+  background-image: url("/lord_dracula_under_moonlight.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   font-family: "Italiana", serif;
   text-align: center;
-  padding: 10px;
   z-index: 0;
 }
 
-/* 🩸 Darker Background Overlay */
+/* 🩸 Background Overlay for readability */
+html::before,
 body::before {
   content: "";
   position: absolute;
@@ -80,19 +87,18 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.1); /* Slightly darker for readability */
+  background: rgba(0, 0, 0, 0.5); /* Darker for readability */
   z-index: -1;
 }
 
-/* 🔥 Flexbox Layout */
+/* 🩸 Container ensures full-screen flexbox */
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  text-align: center;
-  padding: 20px;
+  height: 100%;
   position: relative;
   z-index: 1;
 }
@@ -132,35 +138,35 @@ body::before {
   padding: 10px;
 }
 
-/* 🩸 Valerius AI Flexbox Settings */
+/* 🩸 Valerius AI Sidebar Settings */
 :root {
-  --valerius-width: 66.67vw; /* 2/3 of the screen */
-  --valerius-height: 100vh; /* Full height */
-  --valerius-max-width: 800px; /* Prevent overly large containers */
+  --valerius-width: 320px; /* Approximately 4 inches */
+  --valerius-height: 70vh; /* Half screen height */
 }
 
-/* Valerius AI Main Flexbox */
+/* Sidebar Container */
 .valerius-ai-container {
   position: fixed;
   right: 0;
-  top: 0;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
-  flex-direction: column; /* Stack items */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: var(--valerius-width);
-  max-width: var(--valerius-max-width);
-  height: var(--valerius-height);
+  height: auto; /* Allow natural height expansion */
+  min-height: var(--valerius-height); /* Ensure it reaches at least 50vh */
   background: rgba(0, 0, 0, 0.85);
   border-left: 3px solid #ff0000;
   box-shadow: -5px 0px 15px rgba(255, 0, 0, 0.7);
-  overflow: hidden; /* Ensures nothing spills out */
+  overflow: visible; /* Ensure content isn’t clipped */
 }
 
 /* Inner Box */
 .valerius-ai-box {
-  width: 90%;
-  padding: 20px;
+  width: 80%;
+  padding: 15px;
   text-align: center;
   color: white;
   font-family: "Italiana", serif;
@@ -168,32 +174,32 @@ body::before {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: auto 0; /* Additional safety for centerfold alignment */
 }
 
 /* Image Wrapper */
 .valerius-ai-image {
+  width: 100%;
+  max-width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%; /* Ensures it stays inside */
-  max-width: 400px; /* Prevents oversized image */
   overflow: hidden;
 }
 
 /* Image */
 .valerius-portrait {
-  width: 100%;
-  max-width: 100%;
+  width: 80%;
   height: auto;
-  object-fit: contain; /* Keeps it inside the box */
+  object-fit: contain; /* Ensures it stays inside */
   border-radius: 10px;
   border: 2px solid #ff0000;
-  box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
 }
 
 /* Title */
 .valerius-ai-title {
-  font-size: 24px;
+  font-size: 18px;
   font-family: "Quintessential", serif;
   color: #ff0000;
   text-shadow: 0 0 10px #ff0000;
@@ -202,19 +208,19 @@ body::before {
 
 /* Text */
 .valerius-ai-text {
-  font-size: 16px;
+  font-size: 14px;
   font-family: "Italiana", serif;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 /* Input */
 .valerius-ai-input {
   width: 100%;
-  padding: 10px;
+  padding: 8px;
   border: 1px solid #ff0000;
   background: transparent;
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   outline: none;
   border-radius: 4px;
 }
@@ -223,8 +229,8 @@ body::before {
 .valerius-ai-button {
   margin-top: 10px;
   width: 100%;
-  padding: 10px;
-  font-size: 16px;
+  padding: 8px;
+  font-size: 14px;
   background-color: #ff0000;
   color: white;
   border: none;
@@ -234,7 +240,7 @@ body::before {
 }
 
 .valerius-ai-button:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
   background-color: #a10000;
 }
 
@@ -290,5 +296,133 @@ body::before {
   }
   100% {
     box-shadow: 0 0 12px rgba(255, 0, 0, 0.6);
+  }
+}
+
+/* 🩸 Center Valerius Homepage Properly */
+.valerius-home-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers it */
+  width: 90vw;
+  max-width: 700px;
+  padding: 24px;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.4
+  ); /* ⬅ Reduced opacity to reveal more of the background */
+  border: 4px solid #b30000;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.4), 0 0 50px rgba(255, 0, 0, 0.2);
+  color: white;
+  text-align: center;
+  overflow: hidden;
+  z-index: 10; /* Ensure it stays on top */
+}
+
+.typewriter {
+  font-family: "PetitFormalScript", serif;
+  color: #ccc;
+  font-size: 0.95rem;
+  white-space: pre-line;
+  line-height: 1.6;
+  letter-spacing: 0.3px;
+  text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 20px #ff0000,
+    0 0 30px rgba(255, 0, 0, 0.8);
+  overflow: hidden;
+  display: inline-block;
+  animation: typewriterEffect * * 40s * * steps(40, end); /* Increased duration for slower effect */
+}
+
+@keyframes typewriterEffect {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.valerius-home-input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: black;
+  color: white;
+  border: 1px solid #ff0000;
+  border-radius: 5px;
+  font-size: 1rem;
+  text-align: center;
+  outline: none;
+  transition: box-shadow 0.3s;
+}
+
+.valerius-home-input:focus {
+  box-shadow: 0 0 10px #ff0000;
+}
+
+.valerius-home-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px;
+  margin-top: 16px;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: "Quintessential", serif;
+  background-color: rgb(51, 2, 51);
+  color: white;
+  border: 2px solid #ff0000;
+  border-radius: 5px;
+  text-align: center;
+  text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 20px #ff0000,
+    0 0 30px rgba(255, 0, 0, 0.8);
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+}
+
+.valerius-home-button:hover {
+  transform: scale(1.1);
+  background-color: #a10000;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 1);
+}
+
+/* 🩸 Neon Border */
+.neon-border {
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.8), 0 0 18px rgba(255, 0, 0, 0.6);
+  animation: flicker 1.2s infinite alternate;
+}
+
+/* 🩸 Smooth Flickering Effect */
+@keyframes flicker {
+  0% {
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 14px rgba(255, 0, 0, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 12px rgba(255, 0, 0, 0.6);
+  }
+}
+
+/* Optional: Fade-in animation */
+.fade-in {
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
