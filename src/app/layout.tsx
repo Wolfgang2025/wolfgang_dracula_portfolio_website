@@ -2,7 +2,8 @@
 
 import GothicScene from "../app/components/GothicScene"; // Importing the single Gothic Scene
 import Link from "next/link";
-import "../styles/globals.css"; // Ensure this path is correct
+import ValeriusAI from "../app/components/ValeriusAI"; // Adjust path if needed
+import "../app/styles/globals.css"; // Ensure this path is correct
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -20,39 +21,22 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             href="https://www.linkedin.com/in/h-m-36a31a286/"
             target="_blank"
           >
-            <div className="vampire-button">🩸 LinkedIn</div>
+            <div className="vampire-button">🩸Wolfgang's LinkedIn</div>
           </Link>
           <Link href="https://github.com/Wolfgang2025" target="_blank">
-            <div className="vampire-button">📖 GitHub</div>
+            <div className="vampire-button">📖 Wolfgang's GitHub</div>
           </Link>
           <Link href="https://www.linkedin.com/in/h-m-36a31a286/details/projects/">
-            <div className="vampire-button">🏰 My Projects</div>
+            <div className="vampire-button">🏰 Wolfgang's Projects</div>
           </Link>
           <Link href="https://gamma.app/docs/Wolfgang-Dracula-Software-Engineering-Portfolio-q3bv2hzz12fh138">
-            <div className="vampire-button">🩸 My Gamma Presentation</div>
+            <div className="vampire-button">🩸 Wolfgang's Presentation</div>
           </Link>
         </div>
 
         {/* Right Side - Valerius AI Box */}
-        <div className="absolute right-0 top-0 h-screen w-1/3 bg-black/90 text-white p-6 gothic-border flex flex-col justify-between">
-          <div>
-            <h2 className="text-red-600 text-2xl gothic-text">Valerius AI</h2>
-            <p className="mt-2">
-              "Hello, traveller. My name is Valerius. Why do you wander in this
-              guarded realm? Identify yourself, lest harm befalls you.
-              Transylvania is the domain of elusive overlords, and they do not
-              take kindly to mortal trespassers. Speak now, so I may decide your
-              fate..."
-            </p>
-            <input
-              type="text"
-              className="mt-4 p-2 w-full bg-black border border-red-600"
-              placeholder="Identify yourself..."
-            />
-            <button className="mt-2 p-2 bg-red-600 hover:bg-red-800 transition w-full">
-              Submit
-            </button>
-          </div>
+        <div className="valerius-ai-side ml-4">
+          <ValeriusAI />
         </div>
 
         {/* Main Content */}

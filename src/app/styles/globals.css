@@ -69,8 +69,6 @@ body {
   font-family: "Italiana", serif;
   text-align: center;
   padding: 10px;
-  color: white;
-  background-color: black; /* Ensures no gaps */
   z-index: 0;
 }
 
@@ -82,7 +80,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.3); /* Slightly darker for readability */
+  background: rgba(0, 0, 0, 0.1); /* Slightly darker for readability */
   z-index: -1;
 }
 
@@ -134,56 +132,83 @@ body::before {
   padding: 10px;
 }
 
-/* 🦇 Valerius AI Box - Right Side */
-.valeriusAI {
+/* 🩸 Valerius AI Flexbox Settings */
+:root {
+  --valerius-width: 66.67vw; /* 2/3 of the screen */
+  --valerius-height: 100vh; /* Full height */
+  --valerius-max-width: 800px; /* Prevent overly large containers */
+}
+
+/* Valerius AI Main Flexbox */
+.valerius-ai-container {
   position: fixed;
-  top: 0;
   right: 0;
-  width: 30vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.85);
-  color: white;
-  padding: 20px;
-  border-left: 5px solid red;
-  box-shadow: -5px 0px 15px rgba(255, 0, 0, 0.7);
-  font-family: "Garamond", serif;
-  z-index: 100;
-}
-
-/* 👁️ Valerius AI Header */
-.valeriusAI-header {
+  top: 0;
   display: flex;
+  flex-direction: column; /* Stack items */
+  justify-content: center;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 5px;
+  width: var(--valerius-width);
+  max-width: var(--valerius-max-width);
+  height: var(--valerius-height);
+  background: rgba(0, 0, 0, 0.85);
+  border-left: 3px solid #ff0000;
+  box-shadow: -5px 0px 15px rgba(255, 0, 0, 0.7);
+  overflow: hidden; /* Ensures nothing spills out */
 }
 
-/* 👁️ Valerius AI Avatar */
-.valeriusAI-avatar {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
+/* Inner Box */
+.valerius-ai-box {
+  width: 90%;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  font-family: "Italiana", serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Image Wrapper */
+.valerius-ai-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Ensures it stays inside */
+  max-width: 400px; /* Prevents oversized image */
+  overflow: hidden;
+}
+
+/* Image */
+.valerius-portrait {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain; /* Keeps it inside the box */
+  border-radius: 10px;
   border: 2px solid #ff0000;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
 }
 
-/* 👁️ Valerius AI Title */
-.valeriusAI-title {
+/* Title */
+.valerius-ai-title {
+  font-size: 24px;
   font-family: "Quintessential", serif;
-  font-size: 22px;
   color: #ff0000;
   text-shadow: 0 0 10px #ff0000;
+  margin-top: 10px;
 }
 
-/* 👁️ Valerius AI Text */
-.valeriusAI-text {
-  font-family: "Italiana", serif;
+/* Text */
+.valerius-ai-text {
   font-size: 16px;
-  color: white;
-  margin-bottom: 10px;
+  font-family: "Italiana", serif;
+  margin-bottom: 15px;
 }
 
-/* 👁️ Valerius AI Input */
-.valeriusAI-input {
+/* Input */
+.valerius-ai-input {
   width: 100%;
   padding: 10px;
   border: 1px solid #ff0000;
@@ -194,8 +219,8 @@ body::before {
   border-radius: 4px;
 }
 
-/* 👁️ Valerius AI Button */
-.valeriusAI-button {
+/* Submit Button */
+.valerius-ai-button {
   margin-top: 10px;
   width: 100%;
   padding: 10px;
@@ -208,32 +233,9 @@ body::before {
   transition: transform 0.2s, background 0.2s;
 }
 
-.valeriusAI-button:hover {
+.valerius-ai-button:hover {
   transform: scale(1.1);
   background-color: #a10000;
-}
-
-/* 🩸 Vampire Themed Buttons - Left Side */
-:root {
-  --button-width: 180px; /* Adjust width */
-  --button-height: 50px; /* Adjust height */
-  --button-font-size: 18px; /* Adjust font size */
-}
-
-.vampire-buttons-container {
-  position: absolute;
-  left: 20px;
-  top: 30%;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-/* 🩸 Vampire Themed Buttons - Left Side */
-:root {
-  --button-width: 180px; /* Adjust width */
-  --button-height: 50px; /* Adjust height */
-  --button-font-size: 18px; /* Adjust font size */
 }
 
 .vampire-buttons-container {

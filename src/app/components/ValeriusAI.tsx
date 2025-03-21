@@ -1,64 +1,48 @@
 "use client";
-import { useState } from "react";
-import "../styles/globals.css";
 
-export default function ValeriusAI() {
-  const [query, setQuery] = useState("");
-  const [response, setResponse] = useState("");
-  const [loading, setLoading] = useState(false);
+import React from "react";
+import "../styles/globals.css"; // Make sure the path is correct
 
-  // Handle Search via Gemini API
-  const handleSearch = async () => {
-    if (!query.trim()) return;
-    setLoading(true);
-    try {
-      const res = await fetch("/api/gemini", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ prompt: query }),
-      });
-      const data = await res.json();
-      setResponse(data.result || "No knowledge found.");
-    } catch (error) {
-      console.error("Search error:", error);
-      setResponse("Something went wrong...");
-    }
-    setLoading(false);
-  };
-
+const ValeriusAI: React.FC = () => {
   return (
-    <div className="valeriusAI">
-      {/* AI Avatar & Title */}
-      <div className="valeriusAI-header">
-        <img
-          src="/valerius.jpg"
-          alt="Valerius AI"
-          className="valeriusAI-avatar"
+    <div className="valerius-ai-container">
+      <div className="valerius-ai-box">
+        {/* Image of Valerius */}
+        <div className="valerius-ai-image">
+          <img
+            src="/valerius.jpg"
+            alt="Valerius, Guardian of the Shadows"
+            className="valerius-portrait"
+          />
+        </div>
+
+        {/* Title */}
+        <h2 className="valerius-ai-title">
+          Valerius AI Nocturne, Oracle of the Crimson Veil
+        </h2>
+
+        {/* Message */}
+        <p className="valerius-ai-text">
+          "Hail, wayward soul. I am Valerius, Oracle of the Crimson Veil,
+          eternal sentinel of these shadowed lands. What stirs thee to cross the
+          veil and tread upon cursed soil, where moonlight wanes and secrets
+          sleep? Declare thy name, that I may peer into the depths of thy fate.
+          For lo, Transylvania is not kind to strangers... and not all who
+          wander are spared. Speak now, ere the mist devours thy voice..."
+        </p>
+
+        {/* Input */}
+        <input
+          type="text"
+          className="valerius-ai-input"
+          placeholder="State thy name, brave one..."
         />
-        <h2 className="valeriusAI-title">Valerius AI</h2>
+
+        {/* Button */}
+        <button className="valerius-ai-button">Reveal Thyself</button>
       </div>
-
-      <p className="valeriusAI-text">
-        "Greetings, mortal. How can I assist you?"
-      </p>
-
-      {/* Search Input */}
-      <input
-        type="text"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder="Seek wisdom from the shadows..."
-        className="valeriusAI-input"
-      />
-
-      <button onClick={handleSearch} className="valeriusAI-button">
-        {loading ? "Summoning..." : "Search"}
-      </button>
-
-      {/* AI Response Box */}
-      {response && <p className="valeriusAI-response">{response}</p>}
     </div>
   );
-}
+};
+
+export default ValeriusAI;
