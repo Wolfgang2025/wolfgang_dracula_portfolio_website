@@ -1,75 +1,84 @@
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Suspense, useRef } from "react";
-import * as THREE from "three";
+import { useEffect, useState } from "react";
 
 export default function GothicScene() {
   return (
-    <Canvas className="absolute inset-0">
-      {/* Lighting for the scene */}
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[0, 10, 5]} intensity={1.2} />
-
-      {/* Prevent rendering issues */}
-      <Suspense fallback={null}>
-        {/* 🌫️ Gothic Elements (Bats Removed) */}
-        <RollingFog />
-        <BloodMoon />
-        <FloatingCandles />
-      </Suspense>
-    </Canvas>
+    <div className="gothic-scene-container">
+      {/* 📰 Ghostly News Ticker */}
+      <GhostlyNewsTicker />
+    </div>
   );
 }
 
-/* 🌫️ Rolling Fog */
-function RollingFog() {
-  const fogRef = useRef<THREE.Mesh>(null);
+/* 📰 Ghostly News Ticker with API Fetch */
+function GhostlyNewsTicker() {
+  const [news, setNews] = useState(
+    "Fetching the latest whispers from the shadows..."
+  );
 
-  useFrame(() => {
-    if (fogRef.current) {
-      fogRef.current.position.x += 0.005; // Slow horizontal movement
+  useEffect(() => {
+    async function fetchNews() {
+      try {
+        const response = await fetch(
+          "https://newsapi.org/v2/top-headlines?category=technology&apiKey=YOUR_API_KEY"
+        );
+        const data = await response.json();
+        if (data.articles && data.articles.length > 0) {
+          setNews(data.articles[0].title);
+        }
+      } catch (error) {
+        setNews("The night is silent... No whispers from the web.");
+      }
     }
-  });
+    fetchNews();
+  }, []);
 
-  return (
-    <mesh ref={fogRef} position={[0, 0, -5]}>
-      <planeGeometry args={[10, 10]} />
-      <meshStandardMaterial color="gray" transparent opacity={0.2} />
-    </mesh>
-  );
+  return <div className="news-ticker">🩸 {news} 🩸</div>;
 }
 
-/* 🌕 Blood Moon */
-function BloodMoon() {
-  const moonRef = useRef<THREE.Mesh>(null);
+/* 🩸 Global Gothic Scene Flexbox Styling */
+const styles = `
+  .gothic-scene-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+  }
 
-  useFrame(() => {
-    if (moonRef.current) {
-      moonRef.current.rotation.y += 0.002; // Slow rotation for realism
+  .news-ticker {
+    position: absolute;
+    top: 20px;
+    left: 5%;
+    right: 5%;
+    width: 90%;
+    padding: 10px 20px;
+    text-align: center;
+    color: #ff0000;
+    font-size: 1.2rem;
+    font-family: "Italiana", serif;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #ff0000;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+    animation: pulse 1.5s infinite alternate;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  }
+
+  .news-ticker:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 1);
+  }
+
+  @keyframes pulse {
+    0% {
+      text-shadow: 0 0 5px #ff0000;
     }
-  });
-
-  return (
-    <mesh ref={moonRef} position={[2, 3, -5]}>
-      <sphereGeometry args={[1, 32, 32]} />
-      <meshStandardMaterial color="darkred" />
-    </mesh>
-  );
-}
-
-/* 🕯️ Floating Candles */
-function FloatingCandles() {
-  const candleRef = useRef<THREE.Mesh>(null);
-
-  useFrame(() => {
-    if (candleRef.current) {
-      candleRef.current.position.y += Math.sin(Date.now() * 0.002) * 0.005; // Floating effect
+    100% {
+      text-shadow: 0 0 15px #ff0000;
     }
-  });
+  }
+`;
 
-  return (
-    <mesh ref={candleRef} position={[-2, 1, -3]}>
-      <cylinderGeometry args={[0.1, 0.1, 0.5, 16]} />
-      <meshStandardMaterial color="white" />
-    </mesh>
-  );
-}
+document.head.insertAdjacentHTML("beforeend", `<style>${styles}</style>`);
