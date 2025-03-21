@@ -1,9 +1,36 @@
 "use client";
 
-import React from "react";
-import "../styles/globals.css"; // Make sure the path is correct
+import React, { useState } from "react";
+import "../styles/globals.css";
 
 const ValeriusAI: React.FC = () => {
+  const [query, setQuery] = useState("");
+  const [response, setResponse] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const searchGemini = async () => {
+    if (!query) return;
+    setLoading(true);
+    setResponse("");
+
+    try {
+      const res = await fetch("/api/gemini", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ prompt: query }),
+      });
+
+      const data = await res.json();
+      setResponse(data.result || "No relevant data found.");
+    } catch (error) {
+      setResponse("Error retrieving data.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="valerius-ai-container">
       <div className="valerius-ai-box">
@@ -23,23 +50,30 @@ const ValeriusAI: React.FC = () => {
 
         {/* Message */}
         <p className="valerius-ai-text">
-          "Hail, wayward soul. I am Valerius, Oracle of the Crimson Veil,
-          eternal sentinel of these shadowed lands. What stirs thee to cross the
-          veil and tread upon cursed soil, where moonlight wanes and secrets
-          sleep? Declare thy name, that I may peer into the depths of thy fate.
-          For lo, Transylvania is not kind to strangers... and not all who
-          wander are spared. Speak now, ere the mist devours thy voice..."
+          "What dost thou seek, wanderer? Speak, and I shall unveil the hidden
+          truths that lie within the realm of Transylvania..."
         </p>
 
-        {/* Input */}
+        {/* Search Input */}
         <input
           type="text"
           className="valerius-ai-input"
-          placeholder="State thy name, brave one..."
+          placeholder="Enter thy query..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
         />
 
-        {/* Button */}
-        <button className="valerius-ai-button">Reveal Thyself</button>
+        {/* Search Button */}
+        <button
+          className="valerius-ai-button"
+          onClick={searchGemini}
+          disabled={loading}
+        >
+          {loading ? "Seeking..." : "Reveal Thyself"}
+        </button>
+
+        {/* Response Display */}
+        {response && <p className="valerius-ai-response">{response}</p>}
       </div>
     </div>
   );

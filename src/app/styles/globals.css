@@ -147,7 +147,7 @@ body::before {
 /* Sidebar Container */
 .valerius-ai-container {
   position: fixed;
-  right: 0;
+  right: 40px; /* ⬅ Adds a gap from the screen edge */
   top: 50%;
   transform: translateY(-50%);
   display: flex;
@@ -161,6 +161,7 @@ body::before {
   border-left: 3px solid #ff0000;
   box-shadow: -5px 0px 15px rgba(255, 0, 0, 0.7);
   overflow: visible; /* Ensure content isn’t clipped */
+  padding: 20px;
 }
 
 /* Inner Box */
@@ -204,13 +205,29 @@ body::before {
   color: #ff0000;
   text-shadow: 0 0 10px #ff0000;
   margin-top: 10px;
+  position: relative;
 }
 
-/* Text */
+/* 🔥 Glowing Horizontal Line Below Title */
+.valerius-ai-title::after {
+  content: "";
+  display: block;
+  width: 80%;
+  height: 2px;
+  background-color: white;
+  margin: 10px auto 15px auto;
+  box-shadow: 0 0 8px #ff0000, 0 0 15px rgba(255, 0, 0, 0.7);
+}
+
+/* 📝 Text (Adjusted Readability) */
 .valerius-ai-text {
-  font-size: 14px;
+  font-size: 15px; /* Slightly larger for readability */
   font-family: "Italiana", serif;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  line-height: 1.5; /* ⬅ Increased spacing for readability */
+  letter-spacing: 0.5px; /* Slightly more spacing between letters */
+  text-align: left;
+  padding: 0 10px; /* Adds slight padding for better balance */
 }
 
 /* Input */
@@ -259,6 +276,7 @@ body::before {
   justify-content: center;
   width: var(--button-width);
   height: var(--button-height);
+  padding: 0 16px; /* Added horizontal padding for more breathing room */
   font-size: var(--button-font-size);
   font-family: "Quintessential", serif;
   font-weight: bold; /* Makes text bold */

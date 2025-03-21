@@ -1,6 +1,5 @@
 "use client";
 
-import GothicScene from "../app/components/GothicScene"; // Importing the single Gothic Scene
 import Link from "next/link";
 import ValeriusAI from "../app/components/ValeriusAI"; // Adjust path if needed
 import "../app/styles/globals.css"; // Ensure this path is correct
@@ -12,9 +11,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <title>My Dracula Portfolio</title>
       </head>
       <body className="relative w-screen h-screen overflow-hidden">
-        {/* 3D Gothic Background Effects */}
-        <GothicScene />
-
         {/* Left Side - Vampire Themed Social Buttons */}
         <div className="vampire-buttons-container">
           <Link
