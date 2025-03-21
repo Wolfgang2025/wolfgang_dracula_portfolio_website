@@ -444,3 +444,26 @@ body::before {
     transform: translateY(0);
   }
 }
+
+/* Glowing, flickering red response text */
+.valerius-ai-response {
+  margin-top: 20px;
+  color: white;
+  font-family: "Italiana", serif;
+  white-space: pre-line;
+  animation: scrollFadeIn 2s ease-out;
+  text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 20px #a10000,
+    0 0 40px rgba(255, 0, 0, 0.8);
+}
+
+/* Ancient scroll-style fade in */
+@keyframes scrollFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

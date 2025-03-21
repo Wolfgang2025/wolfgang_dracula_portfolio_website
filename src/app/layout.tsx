@@ -25,9 +25,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <Link href="https://www.linkedin.com/in/h-m-36a31a286/details/projects/">
             <div className="vampire-button">🏰 Wolfgang's Projects</div>
           </Link>
-          <Link href="https://gamma.app/docs/Wolfgang-Dracula-Software-Engineering-Portfolio-q3bv2hzz12fh138">
-            <div className="vampire-button">🩸 Wolfgang's Presentation</div>
-          </Link>
         </div>
 
         {/* Right Side - Valerius AI Box */}
