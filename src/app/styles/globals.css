@@ -229,7 +229,7 @@ body::before {
   gap: 15px;
 }
 
-./* 🩸 Vampire Themed Buttons - Left Side */
+/* 🩸 Vampire Themed Buttons - Left Side */
 :root {
   --button-width: 180px; /* Adjust width */
   --button-height: 50px; /* Adjust height */
