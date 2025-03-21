@@ -19,7 +19,7 @@ function GhostlyNewsTicker() {
     async function fetchNews() {
       try {
         const response = await fetch(
-          "https://newsapi.org/v2/top-headlines?category=technology&apiKey=YOUR_API_KEY"
+          "https://newsapi.org/v2/top-headlines?category=technology&apiKey=6dab58ce24524dea8c3ed3316c3a0404"
         );
         const data = await response.json();
         if (data.articles && data.articles.length > 0) {
